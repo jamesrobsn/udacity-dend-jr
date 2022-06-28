@@ -1,24 +1,38 @@
 ## Overview
 
-The purpose of this project is to create a data model from various publicly available input sources that can be modeled to build Power BI dashboards. Spark and Airflow would be good to incorporate down the line if the data becomes more unmanageable. For now, python and pandas is able to complete the job in a reasonable amount of time.
+The purpose of this project is to create a data model from various publicly available data sources that can be modeled to build Power BI dashboards. Spark and Airflow would be good to incorporate down the line if the data becomes more unmanageable. For now, python and pandas is able to complete the job in a reasonable amount of time (roughly 5-10 minutes).
 
 ## Data Sources
 
-World Temperature Data: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data
-U.S. City Demographic Data: https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/
-EIA Data: https://www.eia.gov/electricity/data/eia923/
+* World Temperature Data: https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data
+* U.S. City Demographic Data: https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/
+* EIA Data: https://www.eia.gov/electricity/data/eia923/
 
 ## How to Run
 
 Prerequisite:
 
-In order to run this etl process, you must create an AWS Redshift cluster and an AWS IAM role that can access an S3 bucket. Connection details must be entered into the dwh.cfg file for the python etl to run properly.
+In order to run this etl process, you must create: 
+
+* AWS Security Group
+* AWS IAM Role with AmazonS3ReadOnlyAccess
+* AWS IAM User with AdministratorAccess, AmazonRedshiftFullAccess and AmazonS3FullAccess
+* AWS S3 Bucket with the following folders
+	* demographics
+	* eia
+	* reference
+	* temperature
+* An AWS Redshift cluster
+* Connection details must be entered into the dwh.cfg file for the python etl to run properly.
+	* A template config file has been provided
 
 To run the Python scripts: 
 
-1. Open the Commands section of the Jupyter Notebook and open a New Console
-2. Run command "%run create_tables.py"
-3. Run command "%run etl.py"
+1. Clone and navigate to the repo on your machine
+2. Run command "python create_tables.py"
+3. Run command "python etl.py"
+
+Note: Some python packages may need to be installed if they aren't already (you will get errors to let you know what you're missing)
 
 ## Files
 
