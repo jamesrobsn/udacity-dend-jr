@@ -54,6 +54,18 @@ This pipeline would need to be run, at most, once per month as the new EIA data 
 
 ![alt text](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/model.png?raw=true)
 
+## Data Dictionary
+
+[a link](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/data_dictionary.xlsx)
+
+## Expected Use
+
+Users are not expected to query the model directly. It is expected that they will import the tables into a Power BI model and create relationships between the tables that will allow them to create dashboards.
+
+![alt text](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/expected_use_case.png?raw=true)
+
+Note: Not a tables were captured in this screenshot, but they have all been included in the Power BI model
+
 ## Other Scenarios
 
 * The data was increased by 100x
