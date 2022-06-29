@@ -58,6 +58,8 @@ This pipeline would need to be run, at most, once per month as the new EIA data 
 
 [Data Dictionary](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/data_dictionary.xlsx)
 
+Note: Many of these definitions originated from the files from the EIA data source. They can be found in the source excel files.
+
 ## Expected Use
 
 Users are not expected to query the model directly. It is expected that they will import the tables into a Power BI model and create relationships between the tables that will allow them to create dashboards.
