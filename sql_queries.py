@@ -177,7 +177,6 @@ create table if not exists fact_electricity
 ,combined_heat_and_power_plant varchar
 ,nuclear_unit_id varchar
 ,naics_code integer
-,sector_name varchar
 ,physical_unit_label varchar
 ,quantity decimal
 ,elec_quantity decimal
@@ -378,7 +377,6 @@ insert into fact_electricity (
     ,combined_heat_and_power_plant
     ,nuclear_unit_id
     ,naics_code
-    ,sector_name
     ,physical_unit_label
     ,quantity
     ,elec_quantity
@@ -407,7 +405,6 @@ select distinct
     ,e.combined_heat_and_power_plant
     ,e.nuclear_unit_id
     ,e.naics_code
-    ,e.sector_name
     ,e.physical_unit_label
     ,e.quantity
     ,e.elec_quantity
