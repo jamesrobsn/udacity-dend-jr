@@ -56,7 +56,7 @@ This pipeline would need to be run, at most, once per month as the new EIA data 
 
 ## Data Dictionary
 
-[a link](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/data_dictionary.xlsx)
+[Data Dictionary](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/data_dictionary.xlsx)
 
 ## Expected Use
 
@@ -65,6 +65,8 @@ Users are not expected to query the model directly. It is expected that they wil
 ![alt text](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/expected_use_case.png?raw=true)
 
 Note: Not a tables were captured in this screenshot, but they have all been included in the Power BI model
+
+![alt text](https://github.com/jamesrobsn/udacity-dend-jr/blob/master/expected_use_dashboard.png?raw=true)
 
 ## Other Scenarios
 
