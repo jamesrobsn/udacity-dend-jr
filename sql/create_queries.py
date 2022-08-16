@@ -125,12 +125,10 @@ create table if not exists fact_electricity
 (date_key integer primary key
 ,location_key integer
 ,plant_key integer
-,aer_fuel_type_key integer
+,fuel_type_key integer
 ,balancing_authority_key integer
-,census_region_key integer
+,region_key integer
 ,eia_sector_key integer
-,nerc_region_key integer
-,reported_fuel_type_key integer
 ,reported_prime_mover_key integer
 ,combined_heat_and_power_plant varchar
 ,nuclear_unit_id varchar
@@ -142,11 +140,6 @@ create table if not exists fact_electricity
 ,tot_mmbtu decimal
 ,elec_mmbtu decimal
 ,netgen decimal
-,elec_fuel_consumption_mmbtu decimal
-,net_generation_megawatthours decimal
-,total_fuel_consumption_quantity decimal
-,electric_fuel_consumption_quantity decimal
-,total_fuel_consumption_mmbtu decimal
 )
 """)
 
@@ -206,10 +199,30 @@ create table if not exists dim_reported_prime_mover
 )
 """)
 
+dim_fuel_type_table_create = ("""
+create table if not exists dim_aer_fuel_type
+(fuel_type_key integer identity(1,1) primary key
+,aer_fuel_type_code varchar
+,aer_fuel_type_desc varchar
+,reported_fuel_type_code varchar
+,reported_fuel_type_desc varchar
+)
+""")
+
+dim_region_table_create = ("""
+(region_key integer identity(1,1) primary key
+,census_region_code varchar
+,census_region_desc varchar
+,nerc_region_code varchar
+,nerc_region_desc varchar
+)
+""")
+
+
 
 # QUERY LISTS
 
-create_table_queries = [staging_eia_table_create, staging_temperature_table_create, staging_demographics_table_create, date_table_create, location_table_create, plant_table_create, temperature_table_create, demographics_table_create, electricity_table_create, dim_aer_fuel_type_table_create, dim_balancing_authority_table_create, dim_census_region_table_create, dim_eia_sector_table_create, dim_nerc_region_table_create, dim_reported_fuel_type_table_create, dim_reported_prime_mover_table_create]
+create_table_queries = [staging_eia_table_create, staging_temperature_table_create, staging_demographics_table_create, date_table_create, location_table_create, plant_table_create, temperature_table_create, demographics_table_create, electricity_table_create, dim_aer_fuel_type_table_create, dim_balancing_authority_table_create, dim_census_region_table_create, dim_eia_sector_table_create, dim_nerc_region_table_create, dim_reported_fuel_type_table_create, dim_reported_prime_mover_table_create, dim_fuel_type_table_create, dim_region_table_create]
 
 #REDUCED LIST TO AVOID LOADING STAGING TABLES
-# create_table_queries = [date_table_create, location_table_create, plant_table_create, temperature_table_create, demographics_table_create, electricity_table_create, dim_aer_fuel_type_table_create, dim_balancing_authority_table_create, dim_census_region_table_create, dim_eia_sector_table_create, dim_nerc_region_table_create, dim_reported_fuel_type_table_create, dim_reported_prime_mover_table_create]
+# create_table_queries = [date_table_create, location_table_create, plant_table_create, temperature_table_create, demographics_table_create, electricity_table_create, dim_aer_fuel_type_table_create, dim_balancing_authority_table_create, dim_census_region_table_create, dim_eia_sector_table_create, dim_nerc_region_table_create, dim_reported_fuel_type_table_create, dim_reported_prime_mover_table_create, dim_fuel_type_table_create, dim_region_table_create]
