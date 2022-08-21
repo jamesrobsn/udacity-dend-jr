@@ -100,16 +100,16 @@ insert into dim_region (
     ,census_region_desc
 )
 select distinct
-    e.nerc_region_code
+    e.nerc_region
     ,n.nerc_region_desc
-    ,e.census_region_code
+    ,e.census_region
     ,c.census_region_desc
 from staging_eia e
 left join dim_nerc_region n
-    on e.nerc_region_code = n.nerc_region_code
+    on e.nerc_region = n.nerc_region_code
 left join dim_census_region c
-    on e.census_region_code = c.census_region_code
-where e.nerc_region_code || e.census_region_code not in (select distinct nerc_region_code || census_region_code from dim_region)
+    on e.census_region = c.census_region_code
+where e.nerc_region || e.census_region not in (select distinct nerc_region_code || census_region_code from dim_region)
 """)
 
 temperature_table_insert = ("""
@@ -215,7 +215,7 @@ left join dim_balancing_authority b
     on e.balancing_authority_code = b.balancing_authority_code
 left join dim_region r
     on e.census_region = r.census_region_code
-    and e.nerc_region = r.ner_region_code
+    and e.nerc_region = r.nerc_region_code
 left join dim_eia_sector eia
     on e.eia_sector_number = eia.eia_sector_code
 left join dim_reported_prime_mover pm

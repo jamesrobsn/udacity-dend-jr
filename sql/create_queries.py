@@ -200,7 +200,7 @@ create table if not exists dim_reported_prime_mover
 """)
 
 dim_fuel_type_table_create = ("""
-create table if not exists dim_aer_fuel_type
+create table if not exists dim_fuel_type
 (fuel_type_key integer identity(1,1) primary key
 ,aer_fuel_type_code varchar
 ,aer_fuel_type_desc varchar
@@ -210,6 +210,7 @@ create table if not exists dim_aer_fuel_type
 """)
 
 dim_region_table_create = ("""
+create table if not exists dim_region
 (region_key integer identity(1,1) primary key
 ,census_region_code varchar
 ,census_region_desc varchar
